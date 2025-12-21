@@ -58,7 +58,7 @@ public class KillXp extends JavaPlugin implements Listener {
             for (Player player : game.getPlayers()) {
                 player.sendMessage(bwPrefix + " §a§l掠夺经验提示已自动开启，§e/kp§a可以关闭或者开启此功能!");
             }
-        }, 5L);
+        }, 2 * 20L);
     }
 
     @EventHandler
@@ -115,7 +115,7 @@ public class KillXp extends JavaPlugin implements Listener {
             } else {
                 playerEnabledList.add(player);
             }
-            sender.sendMessage(bwPrefix + " §a成功" + (isEnabled ? "关闭" : "开启") + "击杀Title,再次输入§e/kp§a可以" + (isEnabled ? "开启" : "关闭") + "。");
+            sender.sendMessage(bwPrefix + " §a成功" + (isEnabled ? "关闭" : "开启") + "击杀Title，再次输入§e/kp§a可以" + (isEnabled ? "开启" : "关闭") + "。");
             return true;
         }
         return false;
