@@ -85,7 +85,10 @@ public class KillXp extends JavaPlugin implements Listener {
         int golbal = getConfig().getInt("golbal");
         XPManager xpman = XPManager.getXPManager(bw.getName());
         int count = (xpman.getXP(player) * bili / 100);
-        xpman.setXP(killer, xpman.getXP(killer) + count);
+        boolean giveKillerXP = getConfig().getBoolean("giveKillerXP");
+        if (giveKillerXP) {
+            xpman.setXP(killer, xpman.getXP(killer) + count);
+        }
         if (count >= golbal) {
             String message = bwPrefix + " §e" + killerName + "§f击杀§e" + playerName + "§f并无情的掠夺了§b" + count + "§f经验!!";
             for (Player gamePlayer : bw.getPlayers()) {
@@ -93,7 +96,7 @@ public class KillXp extends JavaPlugin implements Listener {
             }
         }
         killer.playSound(killer.getLocation(), SoundMachine.get("ORB_PICKUP", "ENTITY_EXPERIENCE_ORB_PICKUP"), 10.0F, 1.0F);
-        TitleAPI.sendTitle(killer, 1, 2, 1, " ", "§b+" + count + "§a经验");
+        TitleAPI.sendTitle(killer, 0, 20, 10, "", "经验§f+§a" + count);
     }
 
     @Override
