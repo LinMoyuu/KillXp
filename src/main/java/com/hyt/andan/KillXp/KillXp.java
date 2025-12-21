@@ -20,7 +20,7 @@ public class KillXp extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        getServer().getConsoleSender().sendMessage("¡ìb¡ìl[KillXp]¡ìa¡ìl²å¼ş¼ÓÔØ³É¹¦,×÷ÕßQQ847091302!");
+        getServer().getConsoleSender().sendMessage("Â§bÂ§l[KillXp] Â§aÂ§læ’ä»¶åŠ è½½æˆåŠŸ!");
         ConfigLoad();
         Bukkit.getPluginManager().registerEvents(this, this);
     }
@@ -28,9 +28,9 @@ public class KillXp extends JavaPlugin implements Listener {
     public void ConfigLoad() {
         File f = new File(getDataFolder() + "/config.yml");
         if (f.exists()) {
-            getServer().getConsoleSender().sendMessage("¡ìb¡ìl[KillXp]¡ìa¡ìl¼ì²âµ½config.yml,¿ªÊ¼¼ÓÔØÅäÖÃ!");
+            getServer().getConsoleSender().sendMessage("Â§bÂ§l[KillXp] Â§aÂ§læ£€æµ‹åˆ°config.yml,å¼€å§‹åŠ è½½é…ç½®!");
         } else {
-            getServer().getConsoleSender().sendMessage("¡ìb¡ìl[KillXp]¡ìc¡ìlÎ´¼ì²âµ½config.yml,ÕıÔÚ´´½¨Ä¬ÈÏÅäÖÃÎÄ¼ş!");
+            getServer().getConsoleSender().sendMessage("Â§bÂ§l[KillXp] Â§cÂ§læœªæ£€æµ‹åˆ°config.yml,æ­£åœ¨åˆ›å»ºé»˜è®¤é…ç½®æ–‡ä»¶!");
             saveDefaultConfig();
         }
         reloadConfig();
@@ -63,14 +63,11 @@ public class KillXp extends JavaPlugin implements Listener {
             xpman.setXP(killer, xpman.getXP(killer) + count);
             if (count >= golbal) {
                 for (Player gamePlayer : bw.getPlayers()) {
-                    gamePlayer.sendMessage("¡ìbÆğ´²Õ½Õù¡ì7>> ¡ìe" + killerName + "¡ìf»÷É±¡ìe" + playerName + "¡ìf²¢ÎŞÇéµÄÂÓ¶áÁË¡ìb" + count + "¡ìf¾­Ñé!!");
+                    gamePlayer.sendMessage("Â§bèµ·åºŠæˆ˜äº‰Â§7>> Â§e" + killerName + "Â§få‡»æ€Â§e" + playerName + "Â§få¹¶æ— æƒ…çš„æ å¤ºäº†Â§b" + count + "Â§fç»éªŒ!!");
                 }
             }
-            String Message = getConfig().getString("Message");
-            if (Message != null) {
-                killer.playSound(killer.getLocation(), SoundMachine.get("ORB_PICKUP", "ENTITY_EXPERIENCE_ORB_PICKUP"), 10.0F, 1.0F);
-                TitleAPI.sendTitle(killer, 1, 2, 1, " ", "¡ìb+" + count + "¡ìa¾­Ñé");
-            }
+            killer.playSound(killer.getLocation(), SoundMachine.get("ORB_PICKUP", "ENTITY_EXPERIENCE_ORB_PICKUP"), 10.0F, 1.0F);
+            TitleAPI.sendTitle(killer, 1, 2, 1, " ", "Â§b+" + count + "Â§aç»éªŒ");
         }
     }
 
@@ -78,12 +75,12 @@ public class KillXp extends JavaPlugin implements Listener {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (label.equals("killxpreload") && (sender.hasPermission("killxp.reload") || sender.isOp())) {
             this.reloadConfig();
-            sender.sendMessage("¡ìb¡ìlKillXpÖØÔØ³É¹¦!");
+            sender.sendMessage("Â§bÂ§lKillXpé‡è½½æˆåŠŸ!");
             return true;
         }
         if (label.equals("kp")) {
             this.reloadConfig();
-            sender.sendMessage("¡ìb¡ìlKillXpÖØÔØ³É¹¦!");
+            sender.sendMessage("Â§bÂ§lKillXpé‡è½½æˆåŠŸ!");
             return true;
         }
         return false;
