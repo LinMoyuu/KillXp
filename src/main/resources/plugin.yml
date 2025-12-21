@@ -1,0 +1,8 @@
+name: killxp
+auther: andan
+main: com.hyt.andan.KillXp.KillXp
+version: 2.0
+
+commands:
+    killxpreload:
+    kp:
