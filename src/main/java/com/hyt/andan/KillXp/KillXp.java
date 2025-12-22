@@ -95,7 +95,7 @@ public class KillXp extends JavaPlugin implements Listener {
             }
         }
         killer.playSound(killer.getLocation(), SoundMachine.get("ORB_PICKUP", "ENTITY_EXPERIENCE_ORB_PICKUP"), 10.0F, 1.0F);
-        if (!playerEnabledList.contains(killer)) return;
+        if (!playerEnabledList.contains(killer) || count == 0) return;
         TitleAPI.sendTitle(killer, 0, 20, 10, "", "经验§f+§a" + count);
     }
 
