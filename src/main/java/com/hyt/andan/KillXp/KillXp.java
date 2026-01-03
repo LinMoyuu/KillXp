@@ -4,6 +4,7 @@ import io.github.bedwarsrel.BedwarsRel;
 import io.github.bedwarsrel.events.BedwarsGameOverEvent;
 import io.github.bedwarsrel.events.BedwarsGameStartEvent;
 import io.github.bedwarsrel.events.BedwarsPlayerJoinedEvent;
+import io.github.bedwarsrel.events.BedwarsPlayerLeaveEvent;
 import io.github.bedwarsrel.game.Game;
 import ldcr.BedwarsXP.api.XPManager;
 import ldcr.BedwarsXP.utils.SoundMachine;
@@ -49,6 +50,11 @@ public class KillXp extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerJoin(BedwarsPlayerJoinedEvent event) {
         playerEnabledList.add(event.getPlayer());
+    }
+
+    @EventHandler
+    public void onPlayerLeave(BedwarsPlayerLeaveEvent event) {
+        playerEnabledList.remove(event.getPlayer());
     }
 
     @EventHandler
